@@ -4,7 +4,13 @@ import "./styles.css";
 class App extends Component {
   constructor() {
     super();
-    this.state = { displayBio: true };
+    this.state = { displayBio: false };
+    console.log("Component this", this);
+  }
+
+  readMore() {
+    // this.state({ displayBio: true });
+    console.log("readMore", this);
   }
 
   render() {
@@ -18,7 +24,9 @@ class App extends Component {
             <p>My favorit language HTML/CSS.</p>
             <p>Besides coding, i am alos trying to learn Guitar </p>
           </div>
-        ) : null}
+        ) : (
+          <button onClick={this.readMore}>Read More</button>
+        )}
       </div>
     );
   }
