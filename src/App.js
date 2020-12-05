@@ -6,12 +6,11 @@ class App extends Component {
     super();
     this.state = { displayBio: false };
     console.log("Component this", this);
-    this.readMore = this.readMore.bind(this);
+    this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
   }
 
-  readMore() {
-    this.setState({ displayBio: true });
-    console.log("readMore", this);
+  toggleDisplayBio() {
+    this.setState({ displayBio: !this.state.displayBio });
   }
 
   render() {
@@ -24,9 +23,10 @@ class App extends Component {
             <p>I live in San Jose, I am a hard worker.</p>
             <p>My favorit language HTML/CSS.</p>
             <p>Besides coding, i am alos trying to learn Guitar </p>
+            <button onClick={this.toggleDisplayBio}>Show Less</button>
           </div>
         ) : (
-          <button onClick={this.readMore}>Read More</button>
+          <button onClick={this.toggleDisplayBio}>Read More</button>
         )}
       </div>
     );
