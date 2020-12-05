@@ -4,7 +4,13 @@ import "./styles.css";
 class App extends Component {
   constructor() {
     super();
-    this.state = { displayBio: true };
+    this.state = { displayBio: false };
+    console.log("Component this", this);
+    this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+  }
+
+  toggleDisplayBio() {
+    this.setState({ displayBio: !this.state.displayBio });
   }
 
   render() {
@@ -17,8 +23,11 @@ class App extends Component {
             <p>I live in San Jose, I am a hard worker.</p>
             <p>My favorit language HTML/CSS.</p>
             <p>Besides coding, i am alos trying to learn Guitar </p>
+            <button onClick={this.toggleDisplayBio}>Show Less</button>
           </div>
-        ) : null}
+        ) : (
+          <button onClick={this.toggleDisplayBio}>Read More</button>
+        )}
       </div>
     );
   }
