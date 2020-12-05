@@ -6,10 +6,11 @@ class App extends Component {
     super();
     this.state = { displayBio: false };
     console.log("Component this", this);
+    this.readMore = this.readMore.bind(this);
   }
 
   readMore() {
-    // this.state({ displayBio: true });
+    this.setState({ displayBio: true });
     console.log("readMore", this);
   }
 
